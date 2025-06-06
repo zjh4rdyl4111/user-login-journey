@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/dashboard/Home";
 import CreateLink from "./pages/dashboard/CreateLink";
 import ManagerLink from "./pages/dashboard/ManagerLink";
+import EditLink from "./pages/dashboard/EditLink";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route index element={<Home />} />
             <Route path="create-link" element={<CreateLink />} />
             <Route path="manager-link" element={<ManagerLink />} />
+            <Route path="edit-link/:id" element={<EditLink />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

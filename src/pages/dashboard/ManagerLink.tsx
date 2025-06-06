@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { MoreHorizontal, Edit, Trash2, BarChart3, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,6 +14,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const ManagerLink = () => {
+  const navigate = useNavigate();
+
   // Mock data for demonstration
   const links = [
     {
@@ -43,6 +46,10 @@ const ManagerLink = () => {
       createdAt: "2024-01-10"
     }
   ];
+
+  const handleEdit = (linkId: number) => {
+    navigate(`/dashboard/edit-link/${linkId}`);
+  };
 
   return (
     <div className="space-y-6">
@@ -127,7 +134,7 @@ const ManagerLink = () => {
                         <BarChart3 className="mr-2 h-4 w-4" />
                         Xem thống kê
                       </DropdownMenuItem>
-                      <DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleEdit(link.id)}>
                         <Edit className="mr-2 h-4 w-4" />
                         Chỉnh sửa
                       </DropdownMenuItem>
